@@ -13,7 +13,7 @@ const Pagination = ({ totalPage }) => {
           className="bg-transparent hover:bg-orange-500 text-orange-700 font-semibold hover:text-white py-2 px-4 border border-orange-500 hover:border-transparent rounded"
           key={page}
           onClick={()=>pushQuery({page})}
-          style={{background: query.page === page ? 'orange' : ''}}
+          style={{background: (query.page || 1) === page ? 'orange' : ''}}
         >
           {page}
         </button>
