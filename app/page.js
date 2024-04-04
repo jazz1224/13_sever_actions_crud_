@@ -4,10 +4,11 @@ import PostForm from '@/components/PostForm.js'
 import { getAllPost } from "@/actions/postActions";
 import PostList from "@/components/PostList";
 import Feature from "@/components/Feature";
+import Pagination from "@/components/Pagination";
 
 const Home = async ({params, searchParams}) => {
 
-  const {posts} = await getAllPost(searchParams)
+  const {posts, totalPage} = await getAllPost(searchParams)
 
 
 
@@ -18,6 +19,7 @@ const Home = async ({params, searchParams}) => {
       <PostForm />
       <Feature/>
       {posts && <PostList posts={posts}/>}
+      {totalPage && <Pagination totalPage={totalPage}/>}
     </div>
   );
 };
